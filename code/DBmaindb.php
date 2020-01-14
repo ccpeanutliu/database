@@ -19,6 +19,7 @@ if($st === 'S')
 	$result = $mysqli->query($sql);
 	$row = $result->fetch_row();
 	$sid = $row[0];
+	echo $sid;
 	$a = "INSERT into S_case_table (SID, Region, Subject, `Timee`) values ('$sid', '$region','$subject', '$time')";
 	$result = $mysqli->query($a);
 	if($result)
@@ -28,6 +29,7 @@ if($st === 'S')
 	}
 	else
 	{
+		echo $mysqli->error;
 	    echo '新增失敗!';
 	    echo '<meta http-equiv=REFRESH CONTENT=2;url=afterlogin.php>';
 	}

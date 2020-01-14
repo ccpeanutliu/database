@@ -42,14 +42,16 @@ if ($result = $mysqli -> query($sql)) {
   echo "</tr>";
   echo "</thead>";
   echo "<tbody>";
+  $count = 0;
   while ($row = $result -> fetch_row()) {
+    $count += 1;
     echo "<tr class='table-light'>";
     echo "<td>$row[1]</td>";
     echo "<td>$row[2]</td>";
     echo "<td>$row[3]</td>";
     echo "<td>$row[4]</td>";
-    echo "<td><a href='check.php'><button type='button' class='btn btn-secondary btn-lg btn-block'>go check!</button></td>";
-    echo "<td><a href='accept.php'><button type='button' class='btn btn-secondary btn-lg btn-block'>accept!</button></td>";
+    echo "<td><form action='check.php' method='post'><input style='color:white' type='submit' name='chk' value=$row[1]></form></td>";
+    echo "<td><form action='accept.php' method='post'><input style='color:white' type='submit' name='acp' value=$row[1]></form></td>";
     echo "</tr>";
   }
   echo "</tbody>";
