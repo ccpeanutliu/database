@@ -40,7 +40,7 @@ else if($st === 'T')
 	$tid = $row[0];
 	        //將帳號寫入session，方便驗證使用者身份
 	//$con= new mysqli("localhost","root","XD221165","mydb");
-	$sql = "INSERT into T_case_table (TID, Region, Subject, `Timee`) values ('$tid', '$region','$subject', '$time')";
+	$sql = "INSERT into T_case_table (TID, Region, Subject, `Time`) values ('$tid', '$region','$subject', '$time')";
 
 	$result = $mysqli->query($sql);
 	if($result)
