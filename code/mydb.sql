@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 14, 2020 at 10:52 PM
+-- Generation Time: Jan 15, 2020 at 12:16 AM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
 -- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
@@ -60,7 +60,8 @@ CREATE TABLE `student_table` (
 --
 
 INSERT INTO `student_table` (`SID`, `school`, `UID`) VALUES
-(1, 'NTU', '4gpeanut');
+(1, 'NTU', '4gpeanut'),
+(2, 'NTU', 'jizz');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,8 @@ CREATE TABLE `S_case_table` (
 --
 
 INSERT INTO `S_case_table` (`SCID`, `SID`, `Region`, `Subject`, `Timee`) VALUES
-(1, 1, 'taiwan', 'math', 'afternoon');
+(1, 1, 'taiwan', 'math', 'afternoon'),
+(2, 2, 'taiwan', 'math', 'afternoon');
 
 -- --------------------------------------------------------
 
@@ -116,6 +118,13 @@ CREATE TABLE `T_case_table` (
   `Subject` text NOT NULL,
   `Time` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `T_case_table`
+--
+
+INSERT INTO `T_case_table` (`TCID`, `TID`, `Region`, `Subject`, `Time`) VALUES
+(1, 1, 'taiwan', 'math', 'afternoon');
 
 --
 -- Indexes for dumped tables
@@ -159,12 +168,12 @@ ALTER TABLE `T_case_table`
 -- AUTO_INCREMENT for table `student_table`
 --
 ALTER TABLE `student_table`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `S_case_table`
 --
 ALTER TABLE `S_case_table`
-  MODIFY `SCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `SCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `teacher_table`
 --
@@ -174,7 +183,7 @@ ALTER TABLE `teacher_table`
 -- AUTO_INCREMENT for table `T_case_table`
 --
 ALTER TABLE `T_case_table`
-  MODIFY `TCID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
