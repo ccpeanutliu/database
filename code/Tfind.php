@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DataBaseTfind</title>
   </head>
   <body id = "top" background="giraffe.jpg">
@@ -19,9 +19,80 @@
         </h1>
       </div>
     </div>
+<?php
 
+include("connect.php");
 
+$sql = "SELECT * FROM S_case_table";
+$result = $mysqli->query($sql);
+if ($result = $mysqli -> query($sql)) {
+  echo "<div class='text-white'>";
+  echo "<div class='container'>";
+  echo "<h5>&nbsp<h5>";
+  echo "<h5><kbd>Case list</kbd></h5>";
+  echo "<table class='table table-striped'>";
+  echo "<thead>";
+  echo "<tr class='table-light'>";
+  echo "<th>Student ID</th>";
+  echo "<th>region</th>";
+  echo "<th>subject</th>";
+  echo "<th>time</th>";
+  echo "<th>Check</th>";
+  echo "<th>Accept</th>";
+  echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  while ($row = $result -> fetch_row()) {
+    echo "<tr class='table-light'>";
+    echo "<td>$row[1]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "<td>$row[4]</td>";
+    echo "<td><a href='check.php'><button type='button' class='btn btn-secondary btn-lg btn-block'>go check!</button></td>";
+    echo "<td><a href='accept.php'><button type='button' class='btn btn-secondary btn-lg btn-block'>accept!</button></td>";
+    echo "</tr>";
+  }
+  echo "</tbody>";
+  echo "</table>";
+  echo "</div>";
+  echo "</div>";
+  $result -> free_result();
+}
 
+?>
+
+<!-- 
+<div class="container">
+  <h2>条纹表格</h2>
+  <p>通过添加 .table-striped 类，来设置条纹表格:</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+-->
     
 
 

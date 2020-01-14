@@ -13,7 +13,7 @@ $mysqli = new mysqli("localhost", "root", "XD221165", "mydb");
 if ($mysqli -> connect_error) {
     die("連線失敗: " . $mysqli->connect_error);
 }
-echo "連線成功";
+//echo "連線成功";
 $mysqli->query("SET NAMES 'utf8'");
 /*
 if(!@mysqli_connect($db_server, $db_user, $db_passwd))

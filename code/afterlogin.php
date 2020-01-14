@@ -40,14 +40,14 @@
                             <div class="row">
                               <div class="col">
                                 <div class="text-white">
-                                <a href = "Tfind.html">
+                                <a href = "Tfind.php">
                                   <button type="button" class="btn btn-primary btn-lg btn-block">Teacher</button>
                                 </a>
                                 </div>
                               </div>
                               <div class="col">
                                 <div>
-                                <a href = "Sfind.html">
+                                <a href = "Sfind.php">
                                   <button type="button" class="btn btn-secondary btn-lg btn-block">Student</button>
                                 </a>
                               </div>
