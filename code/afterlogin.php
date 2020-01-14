@@ -26,7 +26,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Post a request!</h5>
                               <div class="btn btn-secondary btn-lg btn-block" >
-                                <a href = "DBmain.html">
+                                <a href = "DBmain.php">
                                   <button type="button" class="btn btn-secondary btn-lg btn-block">Enter post web</button>
                                 </a>
                               </div>

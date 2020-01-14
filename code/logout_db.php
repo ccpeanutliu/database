@@ -25,7 +25,7 @@
           <h1>Succeed to log out!!!</h1>
         </div>
 
-        <img src="out.jpg" width="300" height="400">
+        <a href="index.php"><img src="out.jpg" width="300" height="400"></a>
       </div>
 
 
@@ -41,10 +41,9 @@
 
 
 <?php
-
 	session_start();
 	unset($_SESSION['username']);
 	unset($_SESSION['studentname']);
 	unset($_SESSION['teachername']);
-	echo '<meta http-equiv=REFRESH CONTENT=1;url=index.php>';
+	//echo '<meta http-equiv=REFRESH CONTENT=1;url=index.php>';
 ?>

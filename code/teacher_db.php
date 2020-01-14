@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include("connect.php");
 
 $uid = $_POST['UID'];
@@ -12,6 +13,9 @@ $sql = "SELECT * FROM member_table WHERE uid = '$uid'";
 $result = $mysqli->query($sql);
 //$con= new mysqli("localhost","root","XD221165","mydb");
 $row = $result->fetch_row();
+
+
+
 
 if($uid != null && $pw != null && $row[0] == $uid && $row[5] == $pw)
 {

@@ -60,7 +60,7 @@
       </div> -->
     </h1> 
     <h2>
-      <form action="register.php" method="post">
+      <form action="DBmaindb.php" method="post">
                 <!-- <div class="text-white">
  -->
                   <div class="container-sm mt-4">
@@ -70,7 +70,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Choose Region</h5>
                             <p class="card-text">Choose your studying/teaching region.</p>
-                            <input type='text'><br>
+                            <input type='text' name='Region'><br>
                           </div>
                         </div>
                       </div>
@@ -79,7 +79,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Choose Subject</h5>
                             <p class="card-text">Choose your studying/teaching subject.</p>
-                            <input type='text'><br>
+                            <input type='text' name='Subject'><br>
                           </div>
                         </div>
                       </div>
@@ -92,7 +92,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Choose Time</h5>
                             <p class="card-text">Choose your studying/teaching time.</p>
-                            <input type='text'><br>
+                            <input type='text' name='Time'><br>
                           </div>
                         </div>
                       </div>
@@ -101,7 +101,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Choose Case</h5>
                             <p class="card-text">Enter S/T if you are a student/teacher.</p>
-                            <input type='text'><br>
+                            <input type='text' name='ST'><br>
                           </div>
                         </div>
                       </div>
