@@ -22,7 +22,7 @@
       </div>
     </div>
     <h1>
-      <div class="dropdown">
+      <!-- <div class="dropdown">
         <div class="container-sm mt-3">
           <div class="btn btn-secondary btn-lg btn-block">
             <button type="button" class="btn btn-secondary dropdown-toggle"   data-toggle="dropdown">
@@ -30,20 +30,20 @@
             </button>
             <div class="dropdown-menu">
               <div class="btn btn-secondary btn-lg btn-block">
-                <a class="dropdown-item" href="regU.php">Register User</a>
+                <a class="dropdown-item" href="regU.html">Register User</a>
               </div>
               <div class="btn btn-secondary btn-lg btn-block">
-                <a class="dropdown-item" href="regS.php">Register Student</a>
+                <a class="dropdown-item" href="regS.html">Register Student</a>
               </div>
               <div class="btn btn-secondary btn-lg btn-block">
-                <a class="dropdown-item" href="regT.php">Register Teacher</a>
+                <a class="dropdown-item" href="regT.html">Register Teacher</a>
               </div>
               <div class="btn btn-secondary btn-lg btn-block">
-                <a class="dropdown-item" href="login.php">Login</a>     
+                <a class="dropdown-item" href="login.html">Login</a>     
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- <div class= "container-sm mt-3" class="img-thumbnail">
         <div class="row">
           <div class="col">
@@ -58,14 +58,75 @@
           </div>
         </div>
       </div> -->
-    <!-- </h1> 
+    </h1> 
     <h2>
-      <div class="container-sm mt-4">
+      <form action="register.php" method="post">
+                <!-- <div class="text-white">
+ -->
+                  <div class="container-sm mt-4">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Choose Region</h5>
+                            <p class="card-text">Choose your studying/teaching region.</p>
+                            <input type='text'><br>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Choose Subject</h5>
+                            <p class="card-text">Choose your studying/teaching subject.</p>
+                            <input type='text'><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-sm mt-4">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Choose Time</h5>
+                            <p class="card-text">Choose your studying/teaching time.</p>
+                            <input type='text'><br>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Choose Case</h5>
+                            <p class="card-text">Enter S/T if you are a student/teacher.</p>
+                            <input type='text'><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- &nbspAccount： <input type='text'><br>
+                  
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSex： <input type='text'><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAge： <input type='text'><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMail： <input type='text'><br>
+                  Password： <input type='text'><br> -->
+                  <!-- </div> -->
+                  
+                  <div class="text-center" class="col-md-4 col-md-offset-4"> <p><input type='submit' value='Submit'></p></div>
+               
+      </form>
+
+
+      <!-- <div class="container-sm mt-4">
         <div class="row">
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">選擇地區</h5>
+                <h5 class="card-title">Choose Region</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
@@ -74,7 +135,7 @@
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">選擇科目</h5>
+                <h5 class="card-title">Choose Subject</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
@@ -87,7 +148,7 @@
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">選擇時段</h5>
+                <h5 class="card-title">Choose Time</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
@@ -96,15 +157,15 @@
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">選擇對象</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">Choose Case</h5>
+                <p class="card-text">Enter S/T if you are a student/teacher.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </h2> -->
+      </div> -->
+    </h2>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
