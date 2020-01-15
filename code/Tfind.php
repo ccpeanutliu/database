@@ -29,7 +29,7 @@ $result = $mysqli->query($sql);
 $row = $result->fetch_row();
 
 $_SESSION['teachername'] = $row[0];
-
+$tid = $row[0];
 
 $sql = "SELECT * FROM S_case_table";
 $result = $mysqli->query($sql);
@@ -53,13 +53,90 @@ if ($result = $mysqli -> query($sql)) {
   $count = 0;
   while ($row = $result -> fetch_row()) {
     $count += 1;
+    $tmpsid = $row[1];
+    $tmpsql = "SELECT UID FROM student_table WHERE SID='$tmpsid'";
+    $tmpres = $mysqli -> query($tmpsql);
+    $tmpsuid = $tmpres -> fetch_row();
     echo "<tr class='table-light'>";
-    echo "<td>$row[1]</td>";
+    echo "<td>$tmpsuid[0]</td>";
     echo "<td>$row[2]</td>";
     echo "<td>$row[3]</td>";
     echo "<td>$row[4]</td>";
     echo "<td><form action='tcheck.php' method='post'><input style='color:white' type='submit' name='chk' value=$row[1]></form></td>";
     echo "<td><form action='Taccept.php' method='post'><input style='color:white' type='submit' name='acp' value=$row[0]></form></td>";
+    echo "</tr>";
+  }
+  echo "</tbody>";
+  echo "</table>";
+  echo "</div>";
+  echo "</div>";
+  $result -> free_result();
+}
+
+
+$sql = "SELECT * FROM case_table WHERE TID='$tid'"; // SID, TID, Time, Region, Subject
+if ($result = $mysqli -> query($sql)) {
+  echo "<div class='text-white'>";
+  echo "<div class='container'>";
+  echo "<h5>&nbsp<h5>";
+  echo "<h5><kbd>Your Case</kbd></h5>";
+  echo "<table class='table table-striped'>";
+  echo "<thead>";
+  echo "<tr class='table-light'>";
+  echo "<th>Student account</th>";
+  echo "<th>Time</th>";
+  echo "<th>Region</th>";
+  echo "<th>Subject</th>";
+  echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  $count = 0;
+  while ($row = $result -> fetch_row()) {
+    $count += 1;
+    $tmpsid = $row[0];
+    $tmpsql = "SELECT UID FROM student_table WHERE SID='$tmpsid'";
+    $tmpres = $mysqli -> query($tmpsql);
+    $tmpsuid = $tmpres -> fetch_row();
+    echo "<tr class='table-light'>";
+    echo "<td>$tmpsuid[0]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "<td>$row[4]</td>";
+    echo "</tr>";
+  }
+  echo "</tbody>";
+  echo "</table>";
+  echo "</div>";
+  echo "</div>";
+  $result -> free_result();
+}
+
+$sql = "SELECT * FROM click_table WHERE TID='$tid'"; // SID, TID, Date, Period
+if ($result = $mysqli -> query($sql)) {
+  echo "<div class='text-white'>";
+  echo "<div class='container'>";
+  echo "<h5>&nbsp<h5>";
+  echo "<h5><kbd>You have seen</kbd></h5>";
+  echo "<table class='table table-striped'>";
+  echo "<thead>";
+  echo "<tr class='table-light'>";
+  echo "<th>Student account</th>";
+  echo "<th>Date</th>";
+  echo "<th>Time</th>";
+  echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  $count = 0;
+  while ($row = $result -> fetch_row()) {
+    $count += 1;
+    $tmpsid = $row[0];
+    $tmpsql = "SELECT UID FROM student_table WHERE SID='$tmpsid'";
+    $tmpres = $mysqli -> query($tmpsql);
+    $tmpsuid = $tmpres -> fetch_row();
+    echo "<tr class='table-light'>";
+    echo "<td>$tmpsuid[0]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
     echo "</tr>";
   }
   echo "</tbody>";

@@ -24,7 +24,7 @@ if($st === 'S')
 	$result = $mysqli->query($a);
 	if($result)
 	{
-	    echo '新增成功!';
+	    //echo '新增成功!';
 	    echo '<meta http-equiv=REFRESH CONTENT=2;url=afterlogin.php>';
 	}
 	else
@@ -47,7 +47,7 @@ else if($st === 'T')
 	$result = $mysqli->query($sql);
 	if($result)
 	{
-	    echo '新增成功!';
+	    //echo '新增成功!';
 	    echo '<meta http-equiv=REFRESH CONTENT=2;url=afterlogin.php>';
 	}
 	else

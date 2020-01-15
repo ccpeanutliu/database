@@ -26,7 +26,7 @@ if($uid != null && $pw != null && $row[0] == $uid && $row[5] == $pw)
 //$con= new mysqli("localhost","root","XD221165","mydb");
     if($result)
     {
-        echo '新增成功!';
+        //echo '新增成功!';
         echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
     }
     else

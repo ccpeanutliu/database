@@ -29,7 +29,7 @@ $result = $mysqli->query($sql);
 $row = $result->fetch_row();
 
 $_SESSION['studentname'] = $row[0];
-
+$sid = $row[0];
 
 $sql = "SELECT * FROM T_case_table";
 $result = $mysqli->query($sql);
@@ -53,8 +53,12 @@ if ($result = $mysqli -> query($sql)) {
   $count = 0;
   while ($row = $result -> fetch_row()) {
     $count += 1;
+    $tmptid = $row[1];
+    $tmpsql = "SELECT UID FROM teacher_table WHERE TID='$tmptid'";
+    $tmpres = $mysqli -> query($tmpsql);
+    $tmptuid = $tmpres -> fetch_row();
     echo "<tr class='table-light'>";
-    echo "<td>$row[1]</td>"; // TID, region, subject, time
+    echo "<td>$tmptuid[0]</td>"; // TID, region, subject, time
     echo "<td>$row[2]</td>";
     echo "<td>$row[3]</td>";
     echo "<td>$row[4]</td>";
@@ -69,6 +73,77 @@ if ($result = $mysqli -> query($sql)) {
   $result -> free_result();
 }
 
+$sql = "SELECT * FROM case_table WHERE SID='$sid'"; // SID, TID, Time, Region, Subject
+if ($result = $mysqli -> query($sql)) {
+  echo "<div class='text-white'>";
+  echo "<div class='container'>";
+  echo "<h5>&nbsp<h5>";
+  echo "<h5><kbd>Your Teacher</kbd></h5>";
+  echo "<table class='table table-striped'>";
+  echo "<thead>";
+  echo "<tr class='table-light'>";
+  echo "<th>Teacher ID</th>";
+  echo "<th>Time</th>";
+  echo "<th>Region</th>";
+  echo "<th>Subject</th>";
+  echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  $count = 0;
+  while ($row = $result -> fetch_row()) {
+    $count += 1;
+    $tmptid = $row[1];
+    $tmpsql = "SELECT UID FROM teacher_table WHERE TID='$tmptid'";
+    $tmpres = $mysqli -> query($tmpsql);
+    $tmptuid = $tmpres -> fetch_row();
+    echo "<tr class='table-light'>";
+    echo "<td>$tmptuid[0]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "<td>$row[4]</td>";
+    echo "</tr>";
+  }
+  echo "</tbody>";
+  echo "</table>";
+  echo "</div>";
+  echo "</div>";
+  $result -> free_result();
+}
+
+$sql = "SELECT * FROM click_table WHERE SID='$sid'"; // SID, TID, Date, Period
+if ($result = $mysqli -> query($sql)){
+  echo "<div class='text-white'>";
+  echo "<div class='container'>";
+  echo "<h5>&nbsp<h5>";
+  echo "<h5><kbd>You have seen</kbd></h5>";
+  echo "<table class='table table-striped'>";
+  echo "<thead>";
+  echo "<tr class='table-light'>";
+  echo "<th>Teacher ID</th>";
+  echo "<th>Date</th>";
+  echo "<th>Time</th>";
+  echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  $count = 0;
+  while ($row = $result -> fetch_row()) {
+    $count += 1;
+    $tmptid = $row[1];
+    $tmpsql = "SELECT UID FROM teacher_table WHERE TID='$tmptid'";
+    $tmpres = $mysqli -> query($tmpsql);
+    $tmptuid = $tmpres -> fetch_row();
+    echo "<tr class='table-light'>";
+    echo "<td>$tmptuid[0]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "</tr>";
+  }
+  echo "</tbody>";
+  echo "</table>";
+  echo "</div>";
+  echo "</div>";
+  $result -> free_result();
+}
 ?>
 
 
@@ -82,6 +157,16 @@ if ($result = $mysqli -> query($sql)) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
+
+  <footer>
+    <div class="container">
+    <a href = "afterlogin.php">
+    <div class="text-center"  class="font-weight-bold">
+      <h5 class="text-white"><kbd>Go Back</kbd></h5>
+    </div>
+    </a>
+  </div>
+  </footer>
 </html>
 
 

@@ -24,7 +24,7 @@ else if($uid != null && $pw != null && $row[0] == $uid && $row[5] == $pw)
     $_SESSION['username'] = $uid;
     $_SESSION['teachername'] = $uid;
     $_SESSION['studentname'] = $uid;
-    echo '登入成功!';
+    //echo '登入成功!';
     echo '<meta http-equiv=REFRESH CONTENT=1;url=afterlogin.php>';
 }
 
