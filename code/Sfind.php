@@ -19,6 +19,57 @@
         </h1>
       </div>
     </div>
+<?php
+
+session_start();
+include("connect.php");
+$uid = $_SESSION['username'];
+$sql = "SELECT SID FROM student_table WHERE UID='$uid'";
+$result = $mysqli->query($sql);
+$row = $result->fetch_row();
+
+$_SESSION['studentname'] = $row[0];
+
+
+$sql = "SELECT * FROM T_case_table";
+$result = $mysqli->query($sql);
+if ($result = $mysqli -> query($sql)) {
+  echo "<div class='text-white'>";
+  echo "<div class='container'>";
+  echo "<h5>&nbsp<h5>";
+  echo "<h5><kbd>Case list</kbd></h5>";
+  echo "<table class='table table-striped'>";
+  echo "<thead>";
+  echo "<tr class='table-light'>";
+  echo "<th>Teacher ID</th>";
+  echo "<th>region</th>";
+  echo "<th>subject</th>";
+  echo "<th>time</th>";
+  echo "<th>Check</th>";
+  echo "<th>Accept</th>";
+  echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  $count = 0;
+  while ($row = $result -> fetch_row()) {
+    $count += 1;
+    echo "<tr class='table-light'>";
+    echo "<td>$row[1]</td>"; // TID, region, subject, time
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "<td>$row[4]</td>";
+    echo "<td><form action='Scheck.php' method='post'><input style='color:white' type='submit' name='chk' value=$row[1]></form></td>";
+    echo "<td><form action='Saccept.php' method='post'><input style='color:white' type='submit' name='acp' value=$row[0]></form></td>";
+    echo "</tr>";
+  }
+  echo "</tbody>";
+  echo "</table>";
+  echo "</div>";
+  echo "</div>";
+  $result -> free_result();
+}
+
+?>
 
 
 

@@ -1,5 +1,12 @@
 
 <!doctype html>
+<?php
+    if(isset($_SESSION['username']))
+    {
+        echo '<meta http-equiv=REFRESH CONTENT=1;url=afterlogin.php>';
+    }
+
+?>
 <html>
 <head>
     <meta charset="utf-8">

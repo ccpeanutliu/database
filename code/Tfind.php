@@ -21,7 +21,15 @@
     </div>
 <?php
 
+session_start();
 include("connect.php");
+$uid = $_SESSION['username'];
+$sql = "SELECT TID FROM teacher_table WHERE UID='$uid'";
+$result = $mysqli->query($sql);
+$row = $result->fetch_row();
+
+$_SESSION['teachername'] = $row[0];
+
 
 $sql = "SELECT * FROM S_case_table";
 $result = $mysqli->query($sql);
@@ -50,8 +58,8 @@ if ($result = $mysqli -> query($sql)) {
     echo "<td>$row[2]</td>";
     echo "<td>$row[3]</td>";
     echo "<td>$row[4]</td>";
-    echo "<td><form action='check.php' method='post'><input style='color:white' type='submit' name='chk' value=$row[1]></form></td>";
-    echo "<td><form action='accept.php' method='post'><input style='color:white' type='submit' name='acp' value=$row[1]></form></td>";
+    echo "<td><form action='tcheck.php' method='post'><input style='color:white' type='submit' name='chk' value=$row[1]></form></td>";
+    echo "<td><form action='Taccept.php' method='post'><input style='color:white' type='submit' name='acp' value=$row[0]></form></td>";
     echo "</tr>";
   }
   echo "</tbody>";
@@ -102,4 +110,14 @@ if ($result = $mysqli -> query($sql)) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
+
+  <footer>
+    <div class="container">
+    <a href = "afterlogin.php">
+    <div class="text-center"  class="font-weight-bold">
+      <h5 class="text-white"><kbd>Go Back</kbd></h5>
+    </div>
+    </a>
+  </div>
+  </footer>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2020 at 12:16 AM
+-- Generation Time: Jan 15, 2020 at 03:15 PM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
 -- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
@@ -19,6 +19,68 @@ SET time_zone = "+00:00";
 --
 -- Database: `mydb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `case_table`
+--
+
+CREATE TABLE `case_table` (
+  `SID` int(11) NOT NULL,
+  `TID` int(11) NOT NULL,
+  `Time` text NOT NULL,
+  `Region` text NOT NULL,
+  `Subject` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `case_table`
+--
+
+INSERT INTO `case_table` (`SID`, `TID`, `Time`, `Region`, `Subject`) VALUES
+(1, 1, 'afternoon', 'taiwan', 'math'),
+(1, 1, 'night', 'Taiwan', 'science'),
+(3, 1, 'afternoon', '', ''),
+(3, 1, 'afternoon', 'taiwan', 'math'),
+(1, 3, 'night', 'Taiwan', 'chinese');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `click_table`
+--
+
+CREATE TABLE `click_table` (
+  `SID` int(11) NOT NULL,
+  `TID` int(11) NOT NULL,
+  `Date` text NOT NULL,
+  `Period` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `click_table`
+--
+
+INSERT INTO `click_table` (`SID`, `TID`, `Date`, `Period`) VALUES
+(2, 1, '2020/01/15', '13:45:15'),
+(2, 1, '2020/01/15', '13:50:24'),
+(1, 1, '2020/01/15', '13:50:36'),
+(2, 1, '2020/01/15', '13:50:42'),
+(1, 1, '2020/01/15', '13:50:45'),
+(1, 1, '2020/01/15', '14:51:35'),
+(1, 1, '2020/01/15', '14:51:51'),
+(1, 1, '2020/01/15', '14:51:53'),
+(1, 1, '2020/01/15', '14:52:08'),
+(3, 1, '2020/01/15', '15:02:20'),
+(3, 1, '2020/01/15', '15:03:12'),
+(3, 1, '2020/01/15', '15:05:32'),
+(3, 1, '2020/01/15', '15:05:35'),
+(3, 1, '2020/01/15', '15:09:32'),
+(3, 1, '2020/01/15', '15:09:37'),
+(3, 1, '2020/01/15', '15:09:49'),
+(3, 1, '2020/01/15', '15:10:35'),
+(1, 3, '2020/01/15', '15:14:34');
 
 -- --------------------------------------------------------
 
@@ -41,7 +103,9 @@ CREATE TABLE `member_table` (
 
 INSERT INTO `member_table` (`uid`, `username`, `sex`, `age`, `mail`, `password`) VALUES
 ('4gpeanut', '劉品枘', 'male', 20, '4gpeanut@gmail.com', '1230'),
-('jizz', '7122', 'male', 20, 'jizz', 'jizz');
+('jizz', '7122', 'male', 20, 'jizz', 'jizz'),
+('weipig', '陳惟中', 'female', 20, 'b06705014@ntu.edu.tw', 'weipig'),
+('yellow', '黃啟宏', 'male', 20, 'b06705002@ntu.edu.tw', 'yellow');
 
 -- --------------------------------------------------------
 
@@ -61,7 +125,8 @@ CREATE TABLE `student_table` (
 
 INSERT INTO `student_table` (`SID`, `school`, `UID`) VALUES
 (1, 'NTU', '4gpeanut'),
-(2, 'NTU', 'jizz');
+(2, 'NTU', 'jizz'),
+(3, 'NTU', 'yellow');
 
 -- --------------------------------------------------------
 
@@ -76,14 +141,6 @@ CREATE TABLE `S_case_table` (
   `Subject` text NOT NULL,
   `Timee` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `S_case_table`
---
-
-INSERT INTO `S_case_table` (`SCID`, `SID`, `Region`, `Subject`, `Timee`) VALUES
-(1, 1, 'taiwan', 'math', 'afternoon'),
-(2, 2, 'taiwan', 'math', 'afternoon');
 
 -- --------------------------------------------------------
 
@@ -103,7 +160,8 @@ CREATE TABLE `teacher_table` (
 --
 
 INSERT INTO `teacher_table` (`TID`, `Seniority`, `Education`, `UID`) VALUES
-(1, 3, 'college', '4gpeanut');
+(1, 3, 'college', '4gpeanut'),
+(3, 10, 'icecream', 'weipig');
 
 -- --------------------------------------------------------
 
@@ -124,7 +182,7 @@ CREATE TABLE `T_case_table` (
 --
 
 INSERT INTO `T_case_table` (`TCID`, `TID`, `Region`, `Subject`, `Time`) VALUES
-(1, 1, 'taiwan', 'math', 'afternoon');
+(2, 3, 'NTU', 'sex', 'everytime');
 
 --
 -- Indexes for dumped tables
@@ -168,22 +226,22 @@ ALTER TABLE `T_case_table`
 -- AUTO_INCREMENT for table `student_table`
 --
 ALTER TABLE `student_table`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `S_case_table`
 --
 ALTER TABLE `S_case_table`
-  MODIFY `SCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `SCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `teacher_table`
 --
 ALTER TABLE `teacher_table`
-  MODIFY `TID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `TID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `T_case_table`
 --
 ALTER TABLE `T_case_table`
-  MODIFY `TCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `TCID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
